@@ -1,0 +1,11 @@
+svg {
+  max-width: 100%;
+  height: auto;
+  preserveAspectRatio: "xMidYMid meet";
+}
+
+.Main {
+  max-width: 800px;
+  border-style: solid;
+  padding: 10px;
+}
