@@ -1,3 +1,16 @@
 {
-   "tekst":"THEOREM 1.4.4 If B and C are both inverses of the matrix A, then B = C."
+   "tekst":[
+     {
+       "linje": "THEOREM 1.4.4"
+     },
+     {
+       "linje": "If B and C"
+     },
+     {
+       "linje": "are both inverses of the matrix A,"
+     },
+     {
+       "linje": "then B = C."
+     }
+    ]
 }

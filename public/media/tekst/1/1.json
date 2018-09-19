@@ -1,3 +1,13 @@
 {
-   "tekst":"En liten gubbe så drömmer i vagnvagga. Snart ska jag födas."
+   "tekst": [
+      {
+        "linje": "En liten gubbe"
+      },
+      {
+        "linje": "så drömmer i vagnvagga."
+      },
+      {
+        "linje": "Snart ska jag födas."
+      }
+    ]
 }

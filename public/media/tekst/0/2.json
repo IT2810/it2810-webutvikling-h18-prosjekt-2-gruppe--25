@@ -1,3 +1,22 @@
 {
-   "tekst":"-Kvi seier du såleis? Handa hennar snerta ved kinnet hans eit par gonger istadenfor svar. Godt. Så var det alt liksom mykje lenger unna. - Sov no, Mattis. - Det var no mest som ein fuglevenge detta, sa han om den snare handa."
+   "tekst": [
+     {
+       "line": "-Kvi seier du såleis?"
+     },
+     {
+       "line": "Handa hennar snerta ved kinnet hans eit par gonger istadenfor svar."
+     },
+     {
+       "line": "Godt. Så var det alt liksom mykje lenger unna."
+     },
+     {
+       "line": ""
+     },
+     {
+       "line": "- Sov no, Mattis."
+     },
+     {
+       "line": "- Det var no mest som ein fuglevenge detta, sa han om den snare handa."
+     }
+    ]
 }

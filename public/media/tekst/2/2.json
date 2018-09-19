@@ -1,3 +1,13 @@
 {
-   "tekst":"THEOREM 1.5.2 Every elementary matrix is invertible, and the inverse is also an elementary matrix."
+   "tekst":[
+     {
+       "linje": "THEOREM 1.5.2"
+     },
+     {
+       "linje": "Every elementary matrix is invertible,"
+     },
+     {
+       "linje": "and the inverse is also an elementary matrix."
+     }
+    ]
 }

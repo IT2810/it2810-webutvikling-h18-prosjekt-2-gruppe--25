@@ -1,3 +1,13 @@
 {
-   "tekst":"Explosionsmotorn knallar utmed vägkanten. Snart är vi framme."
+   "tekst": [
+      {
+        "linje": "Explosionsmotorn"
+      },
+      {
+        "linje": "knallar utmed vägkanten."
+      },
+      {
+        "linje": "Snart är vi framme."
+      }
+    ]
 }

@@ -1,3 +1,16 @@
 {
-   "tekst":"-Mattis! tulla han og ropte i, av si djupe rådløyse, utpå det aude vatnet let det som eit framandt fugleskrik. Kor stor eller liten den fuglen kunne vera, høyrdest ikkje."
+   "tekst": [
+     {
+       "linje": "-Mattis!"
+     },
+     {
+       "linje": "Tulla han og ropte i, av si djupe rådløyse,"
+     },
+     {
+       "linje": "utpå det aude vatnet let det som eit framandt fugleskrik."
+     },
+     {
+       "linje": "Kor stor eller liten den fuglen kunne vera, høyrdest ikkje."
+     }
+   ]
 }
