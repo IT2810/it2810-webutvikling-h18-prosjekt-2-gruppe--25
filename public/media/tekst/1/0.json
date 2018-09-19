@@ -1,3 +1,13 @@
 {
-   "tekst":"Den djävulsmasken ifrån Oceanien. Guds mysterium."
+   "tekst": [
+     {
+       "line": "Den djävulsmasken"
+     },
+     {
+       "line": "ifrån Oceanien."
+     },
+     {
+       "line": "Guds mysterium."
+     }
+    ]
 }

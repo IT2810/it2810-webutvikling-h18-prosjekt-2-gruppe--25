@@ -1,3 +1,13 @@
 {
-   "tekst":"THEOREM 1.6.1 A system of linear equations has zero, one or infinitely any solutions. There are no other possibilities."
+   "tekst":[
+     {
+       "linje": "THEOREM 1.6.1"
+     },
+     {
+       "linje": "A system of linear equations has zero, one or infinitely any solutions."
+     },
+     {
+       "linje": "There are no other possibilities."
+     }
+    ]
 }

@@ -20,7 +20,7 @@ class App extends Component {
 
   //Sets up the first exhebition
   componentDidMount() {
-    this.setIndex(2,2);
+    this.setIndex(2,3);
   }
 
   //Sets the index
@@ -57,7 +57,7 @@ class App extends Component {
         responseType: 'json'
       })
         .then((response) => {
-          const tekst = response.data.tekst;
+          const tekst = this.parseJSON(response.data.tekst);
           let textArray = Object.assign([],this.state.text);
           textArray[categoryIndex][mediaIndex] = tekst;
           this.setState({text: textArray});
@@ -85,6 +85,15 @@ class App extends Component {
     else {
       new Error("Undefined mediaType")
     }
+  }
+
+  //Helper method to extract text from JSON-file in proper format
+  parseJSON = (Json) => {
+    let parsedText = "<p>" + Json[0].linje + "</p>";
+    for (let i = 1; i < Json.length; i++) {
+      parsedText += "<p>" + Json[i].linje + "</p>";
+    }
+    return parsedText;
   }
 
   render() {

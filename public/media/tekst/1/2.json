@@ -1,3 +1,13 @@
 {
-   "tekst":"Blomman på bordet längtar inte till sommarn. Den är sin sommar."
+   "tekst": [
+      {
+        "linje": "Blomman på bordet"
+      },
+      {
+        "linje": "längtar inte till sommarn."
+      },
+      {
+        "linje": "Den är sin sommar."
+      }
+    ]
 }
