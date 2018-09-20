@@ -6,31 +6,32 @@ class TabList extends Component {
         super(props);
 
         this.state = {
-            activeTab : "0"
+            activeTab : 0
+
         };
         this.handleOnClick = this.handleOnClick.bind(this);
     }
     handleOnClick(tabIndex) {
         this.setState(state => ({
             activeTab: tabIndex,
+
         }))
-        console.log(tabIndex);
     }
     render() {
         return (
             <div className="TabList">
-                <Tab name={this.props.navn1} tabIndex="0"
+                <Tab name={this.props.navn1} tabIndex= {0}
                     onClick={this.handleOnClick}
-                    activeTab={this.state.activeTab === "0"}/>
-                <Tab name={this.props.navn2} tabIndex="1"
+                    activeTab={this.state.activeTab === 0}/>
+                <Tab name={this.props.navn2} tabIndex={1}
                     onClick={this.handleOnClick}
-                    activeTab={this.state.activeTab === "1"}/>
-                <Tab name={this.props.navn3} tabIndex="2"
+                    activeTab={this.state.activeTab === 1}/>
+                <Tab name={this.props.navn3} tabIndex={2}
                     onClick={this.handleOnClick}
-                    activeTab={this.state.activeTab === "2"}/>
-                <Tab name={this.props.navn4} tabIndex="3"
+                    activeTab={this.state.activeTab === 2}/>
+                <Tab name={this.props.navn4} tabIndex= {3}
                     onClick={this.handleOnClick}
-                    activeTab={this.state.activeTab === "3"}/>
+                    activeTab={this.state.activeTab === 3}/>
             </div>
         );
     }

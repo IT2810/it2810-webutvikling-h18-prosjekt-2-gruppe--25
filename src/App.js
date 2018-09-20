@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import Main from './main/Main';
+import TabList from './tabs/TabList';
 import Header from './Header';
+import MediaContainer from './MediaContainer';
 import './App.css';
 
 
@@ -91,11 +93,16 @@ class App extends Component {
     return (
       <div className="App">
         <Header/>
+        <TabList navn1="Kombinasjon 1"
+            navn2="Kombinasjon 2"
+            navn3="kombinasjon 3"
+            navn4="kombinasjon 4"/>
         <Main
           xml = {this.getChosenMedia("xml")}
           txt = {this.getChosenMedia("text")}
           soundSource = {this.getChosenMedia("sound")}
         />
+        <MediaContainer name="tekst" kat1="hei" kat2="ho" kat3="betch" />
       </div>
     );
   }
