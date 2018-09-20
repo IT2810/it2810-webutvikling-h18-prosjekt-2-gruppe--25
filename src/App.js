@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import Main from './main/Main';
 import Header from './Header';
+import CategoryContainer from './CategoryContainer';
+import TabList from './tabs/TabList'
 import './App.css';
 
 
@@ -13,29 +15,39 @@ class App extends Component {
     this.state = {
       xml: [[null,null,null,null],[null,null,null,null],[null,null,null,null]],
       text: [[null,null,null,null],[null,null,null,null],[null,null,null,null]],
-      categoryIndex: 0,
+      xmlIndex: 0,
+      textIndex: 0,
+      audioIndex: 0,
       mediaIndex: 0
     };
   }
 
-  //Sets up the first exhebition
-  componentDidMount() {
-    this.setIndex(2,3);
+  componentWillMount() {
+    this.downloadMedia(0,0,0,0);
   }
 
-  //Sets the index
-  setIndex = (cIndex, mIndex) => {
-    this.setState({ categoryIndex: cIndex })
-    this.setState({ mediaIndex: mIndex})
-    this.downloadMediaByIndex(cIndex, mIndex);
+  setXmlCategoryIndex = (xIndex) => {
+    this.downloadMedia(xIndex, this.state.audioIndex, this.state.textIndex, this.state.mediaIndex);
+    this.setState({ xmlIndex: xIndex });
+  }
+  setTextCategoryIndex = (tIndex) => {
+    this.downloadMedia(this.state.xmlIndex, this.state.audioIndex, tIndex, this.state.mediaIndex);
+    this.setState({ textIndex: tIndex});
+  }
+  setAudioCategoryIndex = (aIndex) => {
+    this.downloadMedia(this.state.xmlIndex, aIndex, this.state.textIndex, this.state.mediaIndex);
+    this.setState({ audioIndex: aIndex});
+  }
+  setMediaIndex = (mIndex) => {
+    this.downloadMedia(this.state.xmlIndex, this.state.audioIndex, this.state.textIndex, mIndex);
+    this.setState({ mediaIndex: mIndex});
   }
 
   //Checks if media is available and downloads it if not
-  downloadMediaByIndex = (categoryIndex, mediaIndex) => {
-    if (this.state.xml[categoryIndex][mediaIndex] === null) {
-      let svgUrl = "media\\svg\\" + categoryIndex + "\\" + mediaIndex + ".svg";
-      let textUrl = "media\\tekst\\" + categoryIndex + "\\" + mediaIndex + ".json" ;
-      //downloads svg
+  downloadMedia = (xmlIndex, audioIndex, textIndex, mediaIndex) => {
+    if (this.state.xml[xmlIndex][mediaIndex] === null) {
+      let svgUrl = "media\\svg\\" + xmlIndex + "\\" + mediaIndex + ".svg";
+      //downloads xml
       Axios({
         method: 'get',
         url: svgUrl,
@@ -44,13 +56,16 @@ class App extends Component {
         .then((response) => {
           const data = response.data;
           let svg = Object.assign([],this.state.xml);
-          svg[categoryIndex][mediaIndex] = data;
+          svg[xmlIndex][mediaIndex] = data;
           this.setState({xml: svg});
       })
         .catch((err) => {
           new Error(err)
       });
-      //downloads text
+    }
+    //downloads text
+    if (this.state.text[textIndex][mediaIndex] === null) {
+      let textUrl = "media\\tekst\\" + textIndex + "\\" + mediaIndex + ".json" ;
       Axios({
         method: 'get',
         url: textUrl,
@@ -58,9 +73,9 @@ class App extends Component {
       })
         .then((response) => {
           const tekst = this.parseJSON(response.data.tekst);
-          let textArray = Object.assign([],this.state.text);
-          textArray[categoryIndex][mediaIndex] = tekst;
-          this.setState({text: textArray});
+          let tState = Object.assign([],this.state.text);
+          tState[textIndex][mediaIndex] = tekst;
+          this.setState({text: tState});
       })
         .catch((err) => {
           new Error(err)
@@ -71,16 +86,18 @@ class App extends Component {
 
   //Helper method for turning chosen state into passable props
   getChosenMedia = (mediaType) => {
-    let categoryIndex = this.state.categoryIndex;
     let mediaIndex = this.state.mediaIndex;
     if (mediaType === "xml") {
-      return this.state.xml[categoryIndex][mediaIndex];
+      let xIndex = this.state.xmlIndex;
+      return this.state.xml[xIndex][mediaIndex];
     }
     else if (mediaType === "text") {
-      return this.state.text[categoryIndex][mediaIndex];
+      let tIndex = this.state.textIndex;
+      return this.state.text[tIndex][mediaIndex];
     }
     else if (mediaType === "sound") {
-      return "media\\lyd\\" + categoryIndex + "\\" + mediaIndex + ".mp3";
+      let aIndex = this.state.audioIndex;
+      return "media\\lyd\\" + aIndex + "\\" + mediaIndex + ".mp3";
     }
     else {
       new Error("Undefined mediaType")
@@ -89,8 +106,8 @@ class App extends Component {
 
   //Helper method to extract text from JSON-file in proper format
   parseJSON = (Json) => {
-    let parsedText = "<p>" + Json[0].linje + "</p>";
-    for (let i = 1; i < Json.length; i++) {
+    let parsedText = "";
+    for (let i = 0; i < Json.length; i++) {
       parsedText += "<p>" + Json[i].linje + "</p>";
     }
     return parsedText;
@@ -100,10 +117,22 @@ class App extends Component {
     return (
       <div className="App">
         <Header/>
+        <TabList
+          navn1="MediaIndex0"
+          navn2="MediaIndex1"
+          navn3="MediaIndex2"
+          navn4="MediaIndex3"
+          indexUpdater = {this.setMediaIndex}
+        />
         <Main
           xml = {this.getChosenMedia("xml")}
           txt = {this.getChosenMedia("text")}
           soundSource = {this.getChosenMedia("sound")}
+        />
+        <CategoryContainer
+          lydUpdater={this.setAudioCategoryIndex}
+          bildeUpdater = {this.setXmlCategoryIndex}
+          textUpdater = {this.setTextCategoryIndex}
         />
       </div>
     );

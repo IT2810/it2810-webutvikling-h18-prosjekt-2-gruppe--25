@@ -17,6 +17,7 @@ class MediaContainer extends React.Component {
         this.setState(state => ({
             checked: value,
         }))
+        this.props.updater(value-1);
     }
 
     // render returnerer her tittelen til mediekonteineren, og de tre
