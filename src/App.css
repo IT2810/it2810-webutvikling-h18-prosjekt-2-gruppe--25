@@ -1,11 +1,187 @@
+/*
+.App {
+    display: grid;
+
+    grid-template-areas:
+        'header header'
+        'tablist tablist'
+        'main media'
+}
+
 svg {
-  max-width: 100%;
+  width: 100%;
+  height: auto;
+  preserveAspectRatio: "xMidYMid meet";
+
+}
+
+.Text {
+    grid-area: text;
+
+    align-self: center;
+    justify-self: center;
+}
+
+.Picture {
+    grid-area: svg;
+
+}
+
+.TabList {
+    grid-area: tablist;
+
+    justify-self: cernter;
+}
+
+.tab-button {
+    float: left;
+
+}
+
+.Header {
+    grid-area: header;
+    justify-self: center;
+
+}
+
+.Main {
+  width: 100%;
+  height: auto;
+  border-style: solid;
+  grid-area: main;
+  justify-self: end;
+  display: grid;
+  grid-template-areas:
+      'svg text';
+
+}
+
+.CategoryContainer {
+    grid-area: media;
+
+}
+
+@media (max-width: 800px) {
+    .App {
+        grid-template-areas:
+            'header'
+            'media'
+            'tablist'
+            'main';
+    }
+
+    .CategoryContainer {
+        justify-self: center;
+    }
+
+    .media-container {
+        float: left;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .CategoryContainer {
+        justify-self: center;
+    }
+
+    .Main {
+        grid-template-areas:
+            'svg'
+            'text';
+    }
+
+    .Text {
+        grid-row-start: 2;
+        grid-column-start: 1;
+    }
+} */
+
+.App {
+    display: grid;
+    grid-template-areas:
+        'header'
+        'media'
+        'tablist'
+        'main';
+}
+
+.Header {
+    grid-area: header;
+    justify-self: center;
+}
+
+.CategoryContainer {
+    grid-area: media;
+    padding-bottom: 10px;
+}
+
+.Main {
+    width: 100%;
+    height: auto;
+    border-style: solid;
+    grid-area: main;
+    justify-self: end;
+    display: grid;
+    grid-template-areas:
+        'svg'
+        'text';
+}
+
+.Text {
+    grid-area: text;
+    align-self: center;
+    justify-self: center;
+}
+
+.Picture {
+    grid-area: svg;
+}
+
+.TabList {
+    grid-area: tablist;
+}
+
+.tab-button {
+    float: left;
+}
+
+svg {
+  width: 100%;
   height: auto;
   preserveAspectRatio: "xMidYMid meet";
 }
 
-.Main {
-  max-width: 800px;
-  border-style: solid;
-  padding: 10px;
+@media (min-width: 800px) {
+    .App {
+        grid-template-areas:
+        'header header'
+        'tablist tablist'
+        'main media'
+    }
+
+    .media-container {
+        float: none;
+    }
+
+    .Main {
+        grid-template-areas:
+        'svg text';
+    }
+
+    .CategoryContainer {
+        padding-left: 10px;
+        padding-bottom: 0px;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 799px) {
+    .Main {
+        grid-template-areas:
+        'svg text';
+    }
+
+    .media-container {
+        float: left;
+    }
 }
