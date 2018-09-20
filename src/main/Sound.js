@@ -4,9 +4,7 @@ class Sound extends Component {
   render() {
     return (
       <div className="Sound">
-        <audio autoPlay loop>
-          <source src={this.props.soundSource}/>
-        </audio>
+        <audio src={this.props.soundSource} autoPlay loop/>
       </div>
     );
   }
