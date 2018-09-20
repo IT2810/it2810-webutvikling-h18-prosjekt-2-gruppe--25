@@ -118,10 +118,10 @@ class App extends Component {
       <div className="App">
         <Header/>
         <TabList
-          navn1="MediaIndex0"
-          navn2="MediaIndex1"
-          navn3="MediaIndex2"
-          navn4="MediaIndex3"
+          navn1="Utstilling 1"
+          navn2="Utstilling 2"
+          navn3="Utstilling 3"
+          navn4="Utstilling 4"
           indexUpdater = {this.setMediaIndex}
         />
         <Main

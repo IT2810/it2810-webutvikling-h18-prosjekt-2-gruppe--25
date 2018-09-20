@@ -6,24 +6,24 @@ class CategoryContainer extends Component {
     return (
       <div className="CategoryContainer">
         <MediaContainer
-          tittel = "Bilde"
-          kat1 = "balle1"
-          kat2 = "balle2"
-          kat3 = "balle3"
+          tittel = "Bildekategori"
+          kat1 = "Minimalistiske planter"
+          kat2 = "Landskap"
+          kat3 = "Abstrakte spiraler"
           updater = {this.props.bildeUpdater}
         />
         <MediaContainer
-          tittel = "Text"
-          kat1 = "balle1"
-          kat2 = "balle2"
-          kat3 = "balle3"
+          tittel = "Tekstkategori"
+          kat1 = "Utdrag fra Fuglane av Tarjei Vesaas"
+          kat2 = "Haiku"
+          kat3 = "Matematiske teoremer"
           updater = {this.props.textUpdater}
         />
         <MediaContainer
-          tittel = "Lyd"
-          kat1 = "balle1"
-          kat2 = "balle2"
-          kat3 = "balle3"
+          tittel = "Lydkategori"
+          kat1 = "Klassisk musikk"
+          kat2 = "Fuglelyder"
+          kat3 = "Motorsykler"
           updater = {this.props.lydUpdater}
         />
       </div>
