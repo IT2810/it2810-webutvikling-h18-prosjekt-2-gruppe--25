@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import Main from './main/Main';
+import TabList from './tabs/TabList';
 import Header from './Header';
 import CategoryContainer from './CategoryContainer';
 import TabList from './tabs/TabList'

@@ -11,15 +11,11 @@ class Tab extends Component {
     }
     render() {
         return (
-            <div className={ "tab-button" + (this.props.activeTab ? ' active' : '') }>
-                <button
-                    name={ this.props.name}
+                <button className={ "tab-button" + (this.props.activeTab ? '-active' : '')}
                     tabIndex={ this.props.tabIndex }
-                    onClick={ this.setActiveTab }
-                >
+                    onClick={ this.setActiveTab }>
                     {this.props.name}
                 </button>
-            </div>
         )
     }
 }
