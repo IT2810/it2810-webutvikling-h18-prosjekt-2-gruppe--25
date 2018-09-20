@@ -8,7 +8,6 @@ class Tab extends Component {
     }
     setActiveTab(e) {
         this.props.onClick(e.target.tabIndex);
-
     }
     render() {
         return (
@@ -17,9 +16,9 @@ class Tab extends Component {
                     name={ this.props.name}
                     tabIndex={ this.props.tabIndex }
                     onClick={ this.setActiveTab }
-                    >
-                        {this.props.name}
-                    </button>
+                >
+                    {this.props.name}
+                </button>
             </div>
         )
     }

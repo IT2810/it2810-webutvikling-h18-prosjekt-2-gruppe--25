@@ -3,6 +3,7 @@ import Axios from 'axios';
 import Main from './main/Main';
 import Header from './Header';
 import CategoryContainer from './CategoryContainer';
+import TabList from './tabs/TabList'
 import './App.css';
 
 
@@ -32,7 +33,6 @@ class App extends Component {
   setTextCategoryIndex = (tIndex) => {
     this.downloadMedia(this.state.xmlIndex, this.state.audioIndex, tIndex, this.state.mediaIndex);
     this.setState({ textIndex: tIndex});
-
   }
   setAudioCategoryIndex = (aIndex) => {
     this.downloadMedia(this.state.xmlIndex, aIndex, this.state.textIndex, this.state.mediaIndex);
@@ -41,14 +41,13 @@ class App extends Component {
   setMediaIndex = (mIndex) => {
     this.downloadMedia(this.state.xmlIndex, this.state.audioIndex, this.state.textIndex, mIndex);
     this.setState({ mediaIndex: mIndex});
-
   }
 
   //Checks if media is available and downloads it if not
   downloadMedia = (xmlIndex, audioIndex, textIndex, mediaIndex) => {
     if (this.state.xml[xmlIndex][mediaIndex] === null) {
       let svgUrl = "media\\svg\\" + xmlIndex + "\\" + mediaIndex + ".svg";
-      //downloads svg
+      //downloads xml
       Axios({
         method: 'get',
         url: svgUrl,
@@ -74,9 +73,9 @@ class App extends Component {
       })
         .then((response) => {
           const tekst = this.parseJSON(response.data.tekst);
-          let textArray = Object.assign([],this.state.text);
-          textArray[textIndex][mediaIndex] = tekst;
-          this.setState({text: textArray});
+          let tState = Object.assign([],this.state.text);
+          tState[textIndex][mediaIndex] = tekst;
+          this.setState({text: tState});
       })
         .catch((err) => {
           new Error(err)
@@ -107,8 +106,8 @@ class App extends Component {
 
   //Helper method to extract text from JSON-file in proper format
   parseJSON = (Json) => {
-    let parsedText = "<p>" + Json[0].linje + "</p>";
-    for (let i = 1; i < Json.length; i++) {
+    let parsedText = "";
+    for (let i = 0; i < Json.length; i++) {
       parsedText += "<p>" + Json[i].linje + "</p>";
     }
     return parsedText;
@@ -118,6 +117,13 @@ class App extends Component {
     return (
       <div className="App">
         <Header/>
+        <TabList
+          navn1="MediaIndex0"
+          navn2="MediaIndex1"
+          navn3="MediaIndex2"
+          navn4="MediaIndex3"
+          indexUpdater = {this.setMediaIndex}
+        />
         <Main
           xml = {this.getChosenMedia("xml")}
           txt = {this.getChosenMedia("text")}

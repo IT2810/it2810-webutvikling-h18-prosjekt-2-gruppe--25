@@ -14,7 +14,7 @@ class TabList extends Component {
         this.setState(state => ({
             activeTab: tabIndex,
         }))
-        console.log(tabIndex);
+        this.props.indexUpdater(tabIndex);
     }
     render() {
         return (
