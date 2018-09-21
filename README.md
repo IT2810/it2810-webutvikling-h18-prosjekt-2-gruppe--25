@@ -64,3 +64,18 @@ Lyd håndteres med audio-tagen og trenger derfor bare en source, ikke en faktisk
  Teksten og bildene som lastes inn lagres i App sin state for at brukeren skal slippe å laste inn filer flere ganger. Dette skjer i en nested array for hver av filtypene, hvor underlistene representerer hver sin mediakategori, for eksempel fuglelyder. Når en fil etterspørres gjøres det en sjekk på om den relevante arrayen har data på det forventede stedet, eller om det bare er "null". Er verdien "null" gjøres det et Axios-kall, ellers brukes bare de innlastede dataene direkte. Dette gjør at brukeren bare laster inn filer som er etterspurt, og gjør også innlastingen av siden første gang desidert raskere.
 
 ### Responsive web design
+Appen har responsiv web design. Dette betyr at appen tilpasser seg enheten der appen vises, og enhetens skjermstørrelse. Vår app er designet for mobil først, siden dette ofte er den vanskelige designproblemstillingen, som betyr at å designe for mobil først vil gjøre det enklere å designe for større enheter etterpå.
+
+#### ViewPort
+Viewport er den delen av nettsiden som er synlig på skjermen til brukeren. Man kan gjøre viewporten reaktiv ved å legge til en meta-tag i html-filen og spesifisere at "width=device-width". Bruk av viewport gjør det enklere å designe responsivt, da bredde automatisk blir satt til enhetens bredde. I React er denne tag-en med i den automatisk genererte index.html-filen. 
+
+#### Media queries
+Vår løsning bruker CSS grid og flexbox for å plassere elementene på siden. Dette gjør det enkelt å reorganisere elementene med media queries for forskjellige enhetsstørrelser. Media queries gjør det mulig å spesifisere forskjellige styles basert på egentskapene til den enheten siden vises på. F.eks flyttes CategoryContainer-komponenten seg når skjermen blir større enn grensen vi valgte for mobile enheter og nettbrett, og teksten vil flytte seg til høyre for bildet når skjermen blir større enn grensen for mobile enheter.
+
+#### skalering
+Bildene skalerer etter størrelsen på skjermen, og vil tilpasse seg etter den.
+
+#### flytende layout
+Layouten er flytende, da f.eks MediaContainer-komponentene må "flyte" i designet tiltenkt nettbrett. Tab-knappene er også flytenede. Dette er gjort ved å bruke CSS stylen "float: left", som bestemmer hvordan elementene skal oppføre seg i parent-elementet sitt. I dette tilfellet skal elementene legge seg til venstre for hverandre inne i parent-elementet.
+
+Ingen eksterne rammeverk er brukt for å gjøre appen responsiv.
