@@ -1,3 +1,7 @@
+#index-body {
+      background-color: #557A95;
+}
+
 .App {
     display: grid;
     grid-template-areas:
@@ -5,6 +9,7 @@
         'media'
         'tablist'
         'main';
+    font-family: "Droid serif", "Courier New";
 }
 
 .Header {
@@ -17,16 +22,20 @@
     padding-bottom: 10px;
 }
 
+.media-container {
+  padding-right: 10px;
+}
+
 .Main {
-    width: 100%;
+    width: calc(100vw - (100vw - 100%));
     height: auto;
-    border-style: solid;
     grid-area: main;
     justify-self: end;
     display: grid;
     grid-template-areas:
         'svg'
         'text';
+    background-color: #7395AE;
 }
 
 .Text {
@@ -37,6 +46,12 @@
 
 .Picture {
     grid-area: svg;
+    align-self: center;
+    padding: 5px;
+}
+
+.Sound {
+    display: none;
 }
 
 .TabList {
@@ -45,6 +60,7 @@
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    padding-bottom: 5px;
 }
 
 .tab-button {
@@ -53,8 +69,8 @@
     height:60px;
     white-space: nowrap;
     margin: 0 20px 2px 0;
-    border: 1px solid #ccc;
-    background-color: lightgrey;
+    border: none;
+    background-color: #5D5C61;
     border-radius: 12px;
 }
 
@@ -63,16 +79,20 @@
     height:60px;
     white-space: nowrap;
     margin: 0 20px 2px 0;
-    border: 1px solid #ccc;
+    border: none;
     border-radius: 12px;
-    background-color: lightgreen;
+    background-color: #B1A296;
 }
 
 button:hover {
-    background: lightgreen;
+    background: #B1A296;
     text-decoration: none;
-    cursor:pointer;
+    cursor: pointer;
 }
+
+button:active {background-color: #968c84;}
+
+button:focus {outline:0;}
 
 svg {
   width: 100%;
@@ -80,7 +100,7 @@ svg {
   preserveAspectRatio: "xMidYMid meet";
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
     .App {
         grid-template-areas:
         'header header'
@@ -89,12 +109,17 @@ svg {
     }
 
     .media-container {
-        float: none;
+        float: left;
+    }
+
+    .CategoryContainer {
+      float: right;
     }
 
     .Main {
         grid-template-areas:
         'svg text';
+        width: 80vw;
     }
 
     .CategoryContainer {
@@ -103,10 +128,12 @@ svg {
     }
 }
 
-@media (min-width: 500px) and (max-width: 799px) {
+@media (min-width: 500px) and (max-width: 999px) {
     .Main {
         grid-template-areas:
         'svg text';
+        width: calc(100vw - (100vw - 100%));
+
     }
 
     .media-container {

@@ -14,7 +14,7 @@ class CategoryContainer extends Component {
         />
         <MediaContainer
           tittel = "Tekstkategori"
-          kat1 = "Utdrag fra Fuglane av Tarjei Vesaas"
+          kat1 = "Fuglane av Tarjei Vesaas"
           kat2 = "Haiku"
           kat3 = "Matematiske teoremer"
           updater = {this.props.textUpdater}
