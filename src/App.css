@@ -113,37 +113,3 @@ svg {
         float: left;
     }
 }
-
-
-/* .TabList {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-
-} */
-/* .tab-button {
-    width: 100px;
-    height:60px;
-    white-space: nowrap;
-    margin: 0 20px 2px 0;
-    border: 1px solid #ccc;
-    background-color: lightgrey;
-    border-radius: 12px;
-} */
-/* button:hover {
-    background: lightgreen;
-    text-decoration: none;
-    cursor:pointer;
-} */
-
-
-/* .tab-button-active {
-    width: 100px;
-    height:60px;
-    white-space: nowrap;
-    margin: 0 20px 2px 0;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    background-color: lightgreen;
-} */
