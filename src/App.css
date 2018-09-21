@@ -1,0 +1,144 @@
+#index-body {
+      background-color: #557A95;
+}
+
+.App {
+    display: grid;
+    grid-template-areas:
+        'header'
+        'media'
+        'tablist'
+        'main';
+    font-family: "Droid serif", "Courier New";
+}
+
+.Header {
+    grid-area: header;
+    justify-self: center;
+}
+
+.CategoryContainer {
+    grid-area: media;
+    padding-bottom: 10px;
+}
+
+.media-container {
+  padding-right: 10px;
+}
+
+.Main {
+    width: calc(100vw - (100vw - 100%));
+    height: auto;
+    grid-area: main;
+    justify-self: end;
+    display: grid;
+    grid-template-areas:
+        'svg'
+        'text';
+    background-color: #7395AE;
+}
+
+.Text {
+    grid-area: text;
+    align-self: center;
+    justify-self: center;
+}
+
+.Picture {
+    grid-area: svg;
+    align-self: center;
+    padding: 5px;
+}
+
+.Sound {
+    display: none;
+}
+
+.TabList {
+    grid-area: tablist;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 5px;
+}
+
+.tab-button {
+    float: left;
+    width: 100px;
+    height:60px;
+    white-space: nowrap;
+    margin: 0 20px 2px 0;
+    border: none;
+    background-color: #5D5C61;
+    border-radius: 12px;
+}
+
+.tab-button-active {
+    width: 100px;
+    height:60px;
+    white-space: nowrap;
+    margin: 0 20px 2px 0;
+    border: none;
+    border-radius: 12px;
+    background-color: #B1A296;
+}
+
+button:hover {
+    background: #B1A296;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:active {background-color: #968c84;}
+
+button:focus {outline:0;}
+
+svg {
+  width: 100%;
+  height: auto;
+  preserveAspectRatio: "xMidYMid meet";
+}
+
+@media (min-width: 1000px) {
+    .App {
+        grid-template-areas:
+        'header header'
+        'tablist tablist'
+        'main media'
+    }
+
+    .media-container {
+        float: left;
+    }
+
+    .CategoryContainer {
+      float: right;
+    }
+
+    .Main {
+        grid-template-areas:
+        'svg text';
+        width: 80vw;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .CategoryContainer {
+        padding-left: 10px;
+        padding-bottom: 0px;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 999px) {
+    .Main {
+        grid-template-areas:
+        'svg text';
+        width: calc(100vw - (100vw - 100%));
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    .media-container {
+        float: left;
+    }
+}
