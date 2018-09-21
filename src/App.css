@@ -120,6 +120,7 @@ svg {
         grid-template-areas:
         'svg text';
         width: 80vw;
+        grid-template-columns: 1fr 1fr;
     }
 
     .CategoryContainer {
@@ -133,6 +134,7 @@ svg {
         grid-template-areas:
         'svg text';
         width: calc(100vw - (100vw - 100%));
+        grid-template-columns: 1fr 1fr;
 
     }
 
