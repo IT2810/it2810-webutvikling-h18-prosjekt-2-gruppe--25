@@ -17,13 +17,16 @@ class RadioButton extends React.Component {
     render() {
         return (
             <div className="radio-button">
-                <input type="radio"
-                    name={this.props.name}
-                    value={this.props.value}
-                    checked={this.props.checked}
-                    onChange={this.handleChange}
-                />
-            <label htmlFor={this.props.value}>{this.props.kategori}</label><br></br>
+                <label htmlFor={this.props.kategori}>
+                  <input type="radio"
+                      name={this.props.name}
+                      id={this.props.kategori}
+                      value={this.props.value}
+                      checked={this.props.checked}
+                      onChange={this.handleChange}
+                      />
+                  {this.props.kategori}
+                </label><br></br>
             </div>
         );
     }
